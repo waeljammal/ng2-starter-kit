@@ -14,6 +14,20 @@
     - containers
         - These are your routables
         - Can use components and composite-components
+        
+- Features
+    - Webpack
+    - CommonJS
+    - Typescript
+    - Browser Sync
+    - SASS
+    - DLL's
+    - Linting
+    - Fast incremental compilation
+    - CSS Stripping
+    - Centralized configuration in gulp.config.js
+    - Karma / Sinon / Mocha / Chai unit testing
+    - Docker Build
     
 > Makes use of DLL's, this both speeds up page loading time and reduces both the
 > initial build and rebuild time. These DLL's take a little while to build but are 
@@ -31,7 +45,10 @@ using --ts however don't use --ts with --coverage or you will get no source map 
 - To run in production mode without tests (fastest build time)
     - gulp
 
-- To run in production mode with tests (slower build time)
+- To build for production
+    - gulp build
+    
+- To run in dev mode with tests (slower build time)
     - gulp --test
     - gulp --test --coverage
     - gulp --test --coverage --browser Chrome (default is PhantomJS2)
