@@ -28,6 +28,7 @@
     - Centralized configuration in gulp.config.js
     - Karma / Sinon / Mocha / Chai unit testing
     - Docker Build
+    - Typescript code coverage
     
 > Makes use of DLL's, this both speeds up page loading time and reduces both the
 > initial build and rebuild time. These DLL's take a little while to build but are 
