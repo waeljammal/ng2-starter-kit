@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "sourceMap": true,
+    "isolatedModules": true
+  },
+  "filesGlob": [
+    "./client/**/*.ts"
+  ],
+  "files": [
+    "typings/main.d.ts",
+    "client/common/typings/webpack-env.d.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}

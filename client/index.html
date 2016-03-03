@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{%= o.webpackConfig.metadata.title %}</title>
+    
+        <!-- metadata -->
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="assets/images/favicon.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{%= o.webpackConfig.metadata.title %}">
+    
+        <!-- base url -->
+        <base href="{%= o.webpackConfig.metadata.baseUrl %}">
+    
+        <!-- css -->
+        <link rel="stylesheet" type="text/css" href="assets/styles/main.css">
+    </head>
+    <body class="body-wrapper">
+        <!-- application -->
+        <app>
+            <!-- show progress as soon as possible -->
+            <div class="full-screen-overlay bg-black"
+                 id="placeholder-overlay" style="z-index: -2">
+                <div class="fso-progress flex-row">
+                    <div class="three-bounce-spinner">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                    </div>
+                    <span class="message-container">
+                        Please Wait
+                    </span>
+                </div>
+            </div>
+        </app>
+        
+        <!-- js / css -->
+        <script type="text/javascript">
+            /**
+             * Optimized loading of the libraries,
+             * makes sure commons is loaded first and then async loads the rest
+             * in parallel.
+             */
+            function downloadJSAtOnload() {
+                var link = document.createElement("link");
+                link.href = "assets/styles/style-sheet.css";
+                link.rel = "stylesheet";
+                link.type = "text/css";
+                
+                link.onload = function() {
+                    var element = document.createElement("script");
+                    element.src = "assets/lib/common.js";
+                    element.type = "text\/javascript";
+                    element.async = true;
+                    element.onload = function() {
+                        {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+                        var element = document.createElement("script");
+                        element.type = "text\/javascript";
+                        element.src = "{%= o.htmlWebpackPlugin.files.chunks[chunk].entry %}";
+                        document.body.appendChild(element);
+                        {% } %}
+                    };
+    
+                    document.body.appendChild(element);
+                };
+                
+                document.body.appendChild(link);
+            }
+        
+            if (window.addEventListener)
+                window.addEventListener("load", downloadJSAtOnload, false);
+            else if (window.attachEvent)
+                window.attachEvent("onload", downloadJSAtOnload);
+            else 
+                window.onload = downloadJSAtOnload;
+        </script>
+    </body>
+</html>

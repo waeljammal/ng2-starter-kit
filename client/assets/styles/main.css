@@ -1,0 +1,127 @@
+/**
+ * A lightweight style sheet that gets loaded in first
+ * this can be used to render a please wait message etc.
+ */
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.42857143;
+}
+
+.full-screen-overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.full-screen-overlay .fso-progress {
+    margin-left: auto;
+    margin-right: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.full-screen-overlay .three-bounce-spinner {
+    margin-top: 0;
+}
+
+.full-screen-overlay .three-bounce-spinner > div {
+    background-color: #6b94b3;
+}
+
+.full-screen-overlay .message-container {
+    margin-top: 11px;
+    font-size: 16px;
+    min-height: 20px;
+    color: white;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.full-screen-overlay.bg-black{
+    background-color:#1c2b36;
+    color:#6b94b3
+}
+
+.full-screen-overlay.remove {
+    opacity: 0;
+    transition: opacity .5s;
+    -webkit-transition-delay: .5s; /* Safari */
+    transition-delay: .5s;
+}
+
+/* Three bounce spinner */
+.three-bounce-spinner {
+    margin: 100px auto 0;
+    width: 70px;
+    text-align: center;
+}
+
+.three-bounce-spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: bouncedelay 1.4s infinite ease-in-out both;
+    animation: bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.full-screen-overlay .three-bounce-spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.full-screen-overlay .three-bounce-spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0.0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+    0%, 80%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 40% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+      }
+}

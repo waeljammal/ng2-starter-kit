@@ -1,0 +1,140 @@
+@mixin displayFlex() {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex($size) {
+  -webkit-box-flex: $size;
+  -webkit-flex: $size;
+  -moz-box-flex: $size;
+  -ms-flex: $size;
+  flex: $size;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+@mixin flexDirection($dir) {
+  -webkit-flex-direction: $dir;
+  -ms-flex-direction: $dir;
+  flex-direction: $dir;
+}
+
+@mixin justifyContent($val) {
+  justify-content: $val;
+  -webkit-justify-content: $val;
+}
+
+@mixin alignContent($val) {
+  align-content: $val;
+  -webkit-align-content: $val;
+}
+
+@mixin alignItems($val) {
+  align-items: $val;
+  -webkit-align-items: $val;
+}
+
+@mixin align($val) {
+  -ms-flex-align: $val;
+  -webkit-align-items: $val;
+  -webkit-box-align: $val;
+}
+
+@mixin fullHeight() {
+  min-height: 100% !important;
+  height: auto !important;
+  width: 100%;
+}
+
+@mixin color-schema($bg-color: #555, $percent: 15, $sat-percent: 0%) {
+  background-color: saturate(darken($bg-color, $percent), $sat-percent);
+}
+
+@mixin color-variant($bg-color: #555, $lt-percent: 10, $lter-percent: 15, $dk-percent: 10%, $dker-percent: 15%) {
+  background-color: $bg-color;
+
+  &.lt, .lt {
+    @include color-schema($bg-color, $lt-percent, 2.5);
+  }
+
+  &.lter, .lter {
+    @include color-schema($bg-color, $lter-percent, 2.5);
+  }
+
+  &.dk, .dk {
+    @include color-schema($bg-color, $dk-percent, 2.5);
+  }
+
+  &.dker, .dker {
+    @include color-schema($bg-color, $dker-percent, 5);
+  }
+
+  &.bg, .bg {
+    background-color: $bg-color;
+  }
+
+  &.bg-important {
+    background-color: $bg-color !important;
+  }
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin button-variant($color, $background, $border) {
+  color: $color !important;
+  background-color: $background;
+  border-color: $border;
+  outline: transparent none;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    color: $color !important;
+    background-color: darken($background, 5%);
+    border-color: darken($border, 8%);
+    outline: transparent none;
+  }
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+      border-color: $border;
+      outline: transparent none;
+    }
+  }
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

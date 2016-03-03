@@ -1,0 +1,14 @@
+@import "assets/styles/mixin";
+
+random-quote {
+  div:first-child {
+    @include displayFlex();
+    @include flexDirection(column);
+    
+    margin: 10px;
+
+    custom-button {
+      margin-bottom: 10px;
+    }
+  }
+}

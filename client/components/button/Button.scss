@@ -1,0 +1,8 @@
+@import "assets/styles/mixin";
+@import "assets/styles/variables";
+
+custom-button {
+  button {
+    @include button-variant($brand-black, $brand-light, $brand-primary)
+  }
+}
