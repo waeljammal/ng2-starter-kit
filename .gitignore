@@ -1,0 +1,14 @@
+*.iml
+.idea/
+node_modules/
+bower_components/
+target/
+coverage/
+client/common/**/*.js
+client/common/**/*.js.map
+client/components/**/*.js
+client/components/**/*.js.map
+client/containers/**/*.js
+client/containers/**/*.js.map
+client/*.js
+client/*.js.map
