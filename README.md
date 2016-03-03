@@ -6,7 +6,7 @@
     - components
         - Reusable components
         - Do not use services
-        - Use IO Data In / Data or Event Out
+        - Use Data In / Event Out
     - components-composite
         - Compose components from re-usable components
         - Can use services and application specific business logic
